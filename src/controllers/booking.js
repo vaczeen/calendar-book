@@ -35,7 +35,7 @@ const createBooking = async (req, res) => {
 
 const retrieve = async (req, res) => {
     try {
-        const booking = await Booking.find();
+        const booking = await Booking.findOne();
         res.status(200).send(booking);
     } catch (error) {
         res.status(500).send({ message: 'Error while retrieve booking.', detail: error })
@@ -64,7 +64,7 @@ const updateBooking = async (req, res) => {
 const destroyBooking = async (req, res) => {
     try {
         const booking = await Booking.findByIdAndDelete(req.params.id)
-        res.status(200).send(booking)
+        res.status(200).send({ message: 'Already delete booking.', detail: booking })
     } catch (error) {
         res.status(500).send({ message: 'Error delete booking.', detail: error })
     }
