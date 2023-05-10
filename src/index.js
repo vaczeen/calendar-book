@@ -19,7 +19,7 @@ const DB_NAME = process.env.DB_NAME || "mydatabase"
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`))
 
-const connectionURL = `mongodb://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:10000/${DB_NAME}?authSource=admin`;
+const connectionURL = `mongodb://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:27017/${DB_NAME}?authSource=admin`;
 
 mongoose.set("strictQuery", true)
 mongoose.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true })
