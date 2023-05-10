@@ -10,14 +10,8 @@ dotenv.config()
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 
-const subPath = '/api'
 
-app.get(subPath + '/test', (req, res) => {
-    return res.send('OK')
-})
-
-
-app.use(subPath + '/booking', bookingRoutes)
+app.use('/booking', bookingRoutes)
 
 const PORT = process.env.PORT || 3000;
 const DB_USERNAME = process.env.DB_USERNAME || "root"
